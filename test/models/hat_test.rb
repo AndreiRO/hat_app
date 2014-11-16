@@ -122,4 +122,5 @@ class HatTest < ActiveSupport::TestCase
     assert_equal "Moose", hat.name
     assert_equal 1, hat.size
   end
+
 end

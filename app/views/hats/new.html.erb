@@ -1,0 +1,5 @@
+<%= form_tag('/hats/', :method => 'post') do %>
+  <p>Name:<%= text_field "hat", "name" %></p>
+  <p>Size:<%= text_field "hat", "size" %></p>
+  <%= submit_tag "Create hat" %>
+<% end %>

@@ -10,7 +10,7 @@ class HatsViewsControllerTest < ActionController::TestCase
   test "the new template contains all necessary form fields" do
     get :new
 
-    assert_tag :form, :attributes => { :action => "/hats", :method => "post" }
+    assert_tag :form, :attributes => { :action => "/hats/", :method => "post" }
     assert_tag :input, :attributes => { :type => "text", :name => "hat[name]" }
     assert_tag :input, :attributes => { :type => "text", :name => "hat[size]" }
 
@@ -26,4 +26,5 @@ class HatsViewsControllerTest < ActionController::TestCase
     assert_tag :input, :attributes => { :type => "text", :name => "hat[name]", :value => "Fedora" }
     assert_tag :input, :attributes => { :type => "text", :name => "hat[size]", :value => "1" }
   end
+
 end

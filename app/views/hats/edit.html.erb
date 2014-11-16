@@ -1,0 +1,5 @@
+<%= form_tag(url_for({:action => 'update', :id => @hat.id}), :method => 'patch') do %>
+  <p>Name:<%= text_field "hat", "name"%></p>
+  <p>Size:<%= text_field "hat", "size" %></p>
+  <%= submit_tag "Edit hat" %>
+<% end %>

@@ -1,0 +1,11 @@
+<h1>HAT</h1>
+
+<h2>Name: <%= @hat.name %></h2>
+<h2>ID: <%= @hat.id %></h2>
+<h2>Size: <%= @hat.size %></h2>
+<p><a href="<%= url_for({:action => :edit, :id => @hat.id})%>">Edit</a>
+<%= form_tag(url_for({:action => :destroy, :id => @hat.id}), :method => 'delete') do %>
+  <%= submit_tag "Delete Record" %> 
+<% end %>
+
+

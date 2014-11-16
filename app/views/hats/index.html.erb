@@ -1,0 +1,8 @@
+<h1>Salut</h1>
+
+<% @hats.each do |hat| %>
+  <% if hat != nil %>
+  <p><a href="<%= url_for({:action => :show, :id => hat.id})%>">Show <%= hat.name%></a></p>
+  <% end %>
+<% end %>
+<p><a href="<%= url_for({:action => :new})%>">Create</a></p>

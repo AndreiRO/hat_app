@@ -68,6 +68,7 @@ class HatsControllerTest < ActionController::TestCase
   end
 
   test "sending a patch to the update page updates the hat" do
+    Hat.nuke
     Hat.create({ :name => "Fedora", :size => 1 })
 
     patch :update, :id => 1, :hat => { :name => "Moose", :size => 1 }
@@ -85,9 +86,25 @@ class HatsControllerTest < ActionController::TestCase
   end
 
   test "sending a patch an inexistent hat's update page does not render a template and returns a 404" do
+    Hat.nuke
     patch :update, :id => 1, :hat => { :name => "Moose", :size => 1 }
 
     assert_template nil
     assert_response 404
   end
+
+  test "deleting a heat works and redirects to index" do
+    Hat.nuke
+    Hat.create({ :name => "Fedora", :size => 1 })
+    delete :destroy, :id => 1
+    assert_equal nil, Hat.find_by_id(1)
+  end
+
+  test "deleting an inexistent hat returns 404" do
+    Hat.nuke
+    delete :destroy, :id => 1
+    assert_template nil
+    assert_response 404
+  end
+
 end
